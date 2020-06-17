@@ -1,0 +1,28 @@
+{
+  "name": "ironhash",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "Adam, Ironclad, Wells",
+  "license": "ISC",
+  "description": "A tool for researching related hashtags on Instagram.",
+  "homepage": "https://github.com/im-ironclad/ironhash#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/im-ironclad/ironhash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/im-ironclad/ironhash/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^9.4.4",
+    "react-dom": "^16.13.1",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {}
+}
