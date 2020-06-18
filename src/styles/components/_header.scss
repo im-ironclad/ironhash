@@ -1,0 +1,20 @@
+.header {
+  @include container;
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  &__heading {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  &__search {
+
+    &__input {
+      margin-right: 10px;
+    }
+  }
+}

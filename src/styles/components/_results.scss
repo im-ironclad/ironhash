@@ -1,0 +1,29 @@
+.results {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    border: 2px solid #f2f2f2;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+
+    &__name {
+      margin-bottom: 7px;
+      font-weight: bold;
+      
+      & a {
+        color: white;
+
+        &:visited {
+          color: rgb(33, 75, 155);
+        }
+      }
+    }
+
+    &__subtitle {
+      margin-bottom: 10px;
+    }
+  }
+}
