@@ -1,6 +1,7 @@
 // Import Packages
 import React, { useState } from 'react'
 import axios from 'axios'
+import SearchResults from '../components/SearchResults'
 
 /**
  * Home page of our site
@@ -11,7 +12,6 @@ const HomePage = () => {
   let [selectedTags, updateSelectedTags] = useState([])
   const selectedTagsRef = React.createRef()
   const baseEndpoint = "https://www.instagram.com/web/search/topsearch/?query=%23"
-  const tagsEndpoint = "https://www.instagram.com/explore/tags/"
 
   /**
    * Method for handling each search
@@ -119,36 +119,7 @@ const HomePage = () => {
       </section>
 
       {searchResults.length > 0 && (
-        <section id="results" className="results">
-          {searchResults.map(result => (
-            <article key={result.hashtag.id} className="results__item">
-              <p
-                className="results__item__name"
-              >
-                <a
-                  href={tagsEndpoint + result.hashtag.name}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  #{result.hashtag.name}
-                </a>
-              </p>
-
-              <p
-                className="results__item__subtitle"
-              >
-                {result.hashtag.search_result_subtitle}
-              </p>
-
-              <button
-                className="results__item__btn"
-                onClick={() => _handleSelectTag(`#${result.hashtag.name}`)}
-              >
-                Select tag
-              </button>
-            </article>
-          ))}
-        </section>
+        <SearchResults results={searchResults} _handleSelectTag={_handleSelectTag} />
       )}
     </section>
   )
