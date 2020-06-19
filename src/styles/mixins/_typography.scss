@@ -1,0 +1,29 @@
+// https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+@mixin font-size-rem($size: 1.6, $lineHeight: 2.4) {
+  font-size: ($size * 10) + px;
+  font-size: $size + rem;
+  line-height: ($lineHeight * 10) + px;
+  line-height: $lineHeight + rem;
+}
+
+@mixin font($size, $family: "default", $bold: false, $style: null) {
+  font-family: map-get($font-families, $family);
+
+  @if ($bold == true) {
+    font-weight: $font-bold;
+  }
+
+  @if ($style == "italic") {
+    font-style: italic;
+  }
+
+  @if ($size=="heading") {
+    @include font-size-rem(3.2, 4.0);
+  }
+  @else if ($size=="body") {
+    @include font-size-rem(1.8, 2.4);
+  }
+  @else if ($size=="small") {
+    @include font-size-rem(1.2, 2.0);
+  }
+}

@@ -1,0 +1,66 @@
+// Layout utilities
+.clearfix {
+  clear: both;
+}
+
+// Font utilities
+.fontw-light {
+  font-weight: 300;
+}
+
+.fontw-regular {
+  font-weight: 400;
+}
+
+.fontw-medium {
+  font-weight: 500;
+}
+
+.fontw-semibold {
+  font-weight: 600;
+}
+
+.fontw-bold {
+  font-weight: 700;
+}
+
+.fontw-black {
+  font-weight: 900;
+}
+
+/**
+ * Simple helper for nowrap white-space on text
+ * 
+ * X: text-
+ *    wrapping
+ * 
+ * ✓: no-text-wrapping
+ */
+.nowrap {
+  white-space: nowrap;
+}
+
+// Accessibility utilities
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.sr-only-focusable:focus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: auto;
+  height: auto;
+  margin: 0;
+  color: #FFFFFF;
+  background-color: #79AEDE;
+  clip: inherit;
+}

@@ -1,20 +1,24 @@
-// Import utilities
-@import "./reset";
+/**
+ * Entry point:
+ * styles/styles.scss
+ * 
+ * Based off of ITCSS Architecture: https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+ * With a few personal changes
+ */
+@import "variables";
 
-// Temporary custom
-body {
-  background-color: #6f6767;
-  color: white;
-  font-family: sans-serif;
-}
+// Others must come after layout in order to call layout mixins
+@import "mixins/layout";
+@import "mixins/animations";
+@import "mixins/typography";
 
-@mixin container() {
-  max-width: 90%;
-  margin: 0 auto;
-  width: 1000px;
-}
+// Set/Reset generic things
+@import "generic/reset";
+@import "generic/fonts";
+@import "generic/elements";
+@import "generic/utilities";
 
-// Import components
-@import "./components/header";
-@import "./components/results";
-@import "./components/toolbar";
+// Components, order alphabetically
+@import "components/container";
+
+// Include any vendor file(s)

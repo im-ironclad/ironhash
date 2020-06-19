@@ -70,7 +70,7 @@ const HomePage = () => {
             type="text"
             value={searchQuery}
             className="header__search__input"
-            placeholder="Enter hashtag to research"
+            placeholder="#"
             onChange={e => updateSearchQuery(e.target.value)}
           />
 
