@@ -1,6 +1,9 @@
 // Import Packages
 import React, { useState } from 'react'
 import axios from 'axios'
+
+// Import Components
+import Header from '../components/Header'
 import SearchResults from '../components/SearchResults'
 
 /**
@@ -56,12 +59,14 @@ const HomePage = () => {
   }
 
   return (
-    <section id="home">
-      <header className="header">
-        <h1 className="header__heading">
-          Research related<br />hashtags for Instagram
-        </h1>
+    <main id="home">
+      <Header
+        _handleSearch={_handleSearch}
+        updateSearchQuery={updateSearchQuery}
+        searchQuery={searchQuery}
+      />
 
+      <section id="toolbar" className="toolbar">
         <form
           onSubmit={_handleSearch}
           className="header__search"
@@ -80,48 +85,55 @@ const HomePage = () => {
             className="header__search__submit"
           />
         </form>
-      </header>
 
-      <section id="toolbar" className="toolbar">
-        <div className="toolbar__tools">
-          <button onClick={_copyToClipboard}>
+        {/* Sort By Input/Form */}
+      </section>
+
+      <section id="tags-list" className="tags-list">
+        {selectedTags.length > 0 && (
+          <ul className="sidebar__tags__list">
+            {selectedTags.map(tag => (
+              <li key={tag} className="sidebar__tags__list__item">
+                <p className="sidebar__tags__list__item__tag">{tag}</p>
+
+                <button
+                  aria-label={`Remove the hashtag: ${tag}`}
+                  className="sidebar__tags__list__item__btn"
+                  onClick={() => _handleDeselectTag(tag)}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <aside className="sidebar">
+        <div className="sidebar__tags">
+          <p className="sidebar__tags__label">Selected tags:</p>
+
+          <button
+            className="sidebar__tags__copy-btn"
+            onClick={_copyToClipboard}
+          >
             Copy to Clipboard
           </button>
-        </div>
-
-        <div className="toolbar__tags">
-          <p className="toolbar__tags__label">Selected tags:</p>
 
           <textarea
-            className="toolbar__tags__hidden-val"
+            className="sidebar__tags__hidden-val"
             aria-hidden="true"
             ref={selectedTagsRef}
             defaultValue={selectedTags.join(" ")}
             tabIndex="-1"
           />
 
-          {selectedTags.length > 0 && (
-            <ul className="toolbar__tags__list">
-              {selectedTags.map(tag => (
-                <li key={tag} className="toolbar__tags__list__item">
-                  <p className="toolbar__tags__list__item__tag">{tag}</p>
-
-                  <button
-                    aria-label={`Remove the hashtag: ${tag}`}
-                    className="toolbar__tags__list__item__btn"
-                    onClick={() => _handleDeselectTag(tag)}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
+          {/* List of selected tags */}
         </div>
-      </section>
+      </aside>
 
       {searchResults.length > 0 && (
         <SearchResults results={searchResults} _handleSelectTag={_handleSelectTag} />
       )}
-    </section>
+    </main>
   )
 }
 

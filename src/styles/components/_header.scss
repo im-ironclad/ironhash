@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: $cont-rg;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-4 0;
+
+  &__logo {
+    margin-right: $spacing-3;
+  }
+
+  &__heading {
+    width: 600px;
+    @include font(3.2, $bold: true)
+  }
+
+  &__tut-link {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    &__copy {
+      font-weight: $font-bold;
+      margin-right: $spacing-2;
+    }
+
+    & .icon {
+      width: 40px;
+      height: 29px;
+      fill: map-get($colors, "red-400");
+    }
+  }
+}

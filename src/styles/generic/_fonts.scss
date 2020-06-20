@@ -5,20 +5,16 @@
  */
 // @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
-// @font-face {
-//   font-family: "NameHere";
-//   font-weight: 400;
-//   // font-style: italic;
-//   src: url("textfile.woff") format("woff"),
-//     url("textfile.otf") format("opentype"),
-//     url("textfile.ttf") format("truetype");
-// }
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  // font-style: italic;
+  src: url("/src/fonts/Roboto-Regular.ttf") format("truetype");
+}
 
-// @font-face {
-//   font-family: "NameHere";
-//   font-weight: 800;
-//   // font-style: italic;
-//   src: url("textfile-bold.woff") format("woff"),
-//     url("textfile-bold.otf") format("opentype"),
-//     url("textfile-bold.ttf") format("truetype");
-// }
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  // font-style: italic;
+  src: url("/src/fonts/Roboto-Bold.ttf") format("truetype");
+}

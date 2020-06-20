@@ -34,8 +34,11 @@ $gutter: 5%;
  */
 $colors: (
   "white": #FFFFFF,
-  "offwhite": #F2F2F2,
   "black": #000000,
+  "grey-100": #F2F2F2,
+  "gray-400": #666666,
+  "gray-700": #333333,
+  "green-400": #399F28,
   "red-400": #FF0000
 );
 
@@ -43,7 +46,7 @@ $colors: (
  * Font
  */
 $font-families: (
-  "default": #{'Helvetica, sans-serif'}
+  "default": #{'Roboto, Helvetica, sans-serif'}
 );
 
 $font-light: 300;
