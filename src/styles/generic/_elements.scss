@@ -15,6 +15,10 @@ body {
   }
 }
 
+a {
+  color: map-get($colors, "gray-700");
+}
+
 a,
 i,
 button {

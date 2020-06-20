@@ -60,11 +60,7 @@ const HomePage = () => {
 
   return (
     <main id="home">
-      <Header
-        _handleSearch={_handleSearch}
-        updateSearchQuery={updateSearchQuery}
-        searchQuery={searchQuery}
-      />
+      <Header />
 
       <section id="toolbar" className="toolbar">
         <form

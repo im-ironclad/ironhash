@@ -7,11 +7,7 @@ import IconSVG from './IconSVG'
 /**
  * @component Header
  */
-const Header = ({
-  _handleSearch,
-  updateSearchQuery,
-  searchQuery
-}) => {
+const Header = () => {
   return (
     <header className="header">
       <img
@@ -19,10 +15,11 @@ const Header = ({
         alt="ironhash logo."
         width="75"
         className="header__logo"
+        title="ironhash"
       />
 
       <h1 className="header__heading">
-        Quickly and easily research related hashtags for Instagram.
+        Quickly and easily research related <a href="https://instagram.com" target="_blank">Instagram</a> hashtags.
       </h1>
 
       <div className="header__tut-link">
@@ -30,7 +27,14 @@ const Header = ({
           Why/How to use:
         </p>
 
-        <IconSVG iconName="play" />
+        <a
+          href="https://youtube.com"
+          target="_blank"
+          className="header__tut-link__icon"
+          title="Video Tutorial"
+        >
+          <IconSVG iconName="play" />
+        </a>
       </div>
     </header>
   )
