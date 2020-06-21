@@ -9,6 +9,7 @@ body {
   min-width: $min-page-width;
   margin: 0 auto;
   position: relative;
+  width: 100vw;
   -webkit-font-smoothing: antialiased;
   &.is-locked {
     overflow: hidden;
@@ -80,6 +81,10 @@ button {
   &:disabled {
     pointer-events: none;
   }
+}
+
+strong {
+  font-weight: $font-bold;
 }
 
 img {

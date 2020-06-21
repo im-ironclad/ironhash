@@ -5,6 +5,8 @@ import axios from 'axios'
 // Import Components
 import Header from '../components/Header'
 import SearchResults from '../components/SearchResults'
+import SelectedTags from '../components/SelectedTags'
+import Toolbar from '../components/Toolbar'
 
 /**
  * Home page of our site
@@ -63,92 +65,17 @@ const HomePage = () => {
       <Header />
 
       <main id="content" className="content">
-        <section className="toolbar">
-          <form
-            onSubmit={_handleSearch}
-            className="toolbar__search"
-          >
-            <label
-              htmlFor="search"
-              className="toolbar__search__label"
-            >
-              #
-            </label>
-            <input
-              id="search"
-              type="text"
-              value={searchQuery}
-              className="toolbar__search__input"
-              onChange={e => updateSearchQuery(e.target.value)}
-            />
+        <Toolbar
+          _handleSearch={_handleSearch}
+          searchQuery={searchQuery}
+          updateSearchQuery={updateSearchQuery}
+        />
   
-            <button
-              className="btn toolbar__search__submit"
-            >
-              Search
-            </button>
-          </form>
-  
-          {/* Sort By Input/Form */}
-          <form className="toolbar__sort">
-            <label
-              htmlFor="sort"
-              className="toolbar__sort__label"
-            >
-              Sort By:
-            </label>
-
-            <select
-              id="sort"
-              className="toolbar__sort__select"
-              onChange={(e) => {console.log(e.target.value)}}
-            >
-              <option value=""></option>
-              <option value="htl">Posts - High to Low</option>
-              <option value="lth">Posts - Low to High</option>
-            </select>
-          </form>
-        </section>
-  
-        <aside className="selected-tags">
-          <div className="sidebar__tags">
-            <p className="sidebar__tags__label">Selected tags:</p>
-  
-            <button
-              className="sidebar__tags__copy-btn"
-              onClick={_copyToClipboard}
-            >
-              Copy to Clipboard
-            </button>
-  
-            <textarea
-              className="sidebar__tags__hidden-val"
-              aria-hidden="true"
-              ref={selectedTagsRef}
-              defaultValue={selectedTags.join(" ")}
-              tabIndex="-1"
-            />
-  
-            {/* List of selected tags */}
-            <div id="selected-tags" className="selected-tags">
-              {selectedTags.length > 0 && (
-                <ul className="sidebar__tags__list">
-                  {selectedTags.map(tag => (
-                    <li key={tag} className="sidebar__tags__list__item">
-                      <p className="sidebar__tags__list__item__tag">{tag}</p>
-  
-                      <button
-                        aria-label={`Remove the hashtag: ${tag}`}
-                        className="sidebar__tags__list__item__btn"
-                        onClick={() => _handleDeselectTag(tag)}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        </aside>
+        <SelectedTags
+          _copyToClipboard={_copyToClipboard}
+          selectedTags={selectedTags}
+          selectedTagsRef={selectedTagsRef}
+        />
   
         {searchResults.length > 0 && (
           <SearchResults results={searchResults} _handleSelectTag={_handleSelectTag} />
