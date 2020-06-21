@@ -26,8 +26,8 @@ $spacing-5: 50px;
 $min-page-width: 320px; // This should always be 320px, minimum phone size
 $max-page-width: 1900px; // This can be whatever you want (i.e. 1200px or 1440px)
 $cont-rg: 1140px;
-$max-width: 90%;
-$gutter: 5%;
+$max-width: 95%;
+$gutter: 2.5%;
 
 /**
  * Colors
@@ -35,7 +35,7 @@ $gutter: 5%;
 $colors: (
   "white": #FFFFFF,
   "black": #000000,
-  "grey-100": #F2F2F2,
+  "gray-100": #F2F2F2,
   "gray-400": #666666,
   "gray-700": #333333,
   "green-400": #399F28,

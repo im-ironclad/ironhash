@@ -59,77 +59,108 @@ const HomePage = () => {
   }
 
   return (
-    <main id="home">
+    <div id="home">
       <Header />
 
-      <section id="toolbar" className="toolbar">
-        <form
-          onSubmit={_handleSearch}
-          className="header__search"
-        >
-          <input
-            type="text"
-            value={searchQuery}
-            className="header__search__input"
-            placeholder="#"
-            onChange={e => updateSearchQuery(e.target.value)}
-          />
-
-          <input
-            type="submit"
-            value="Search"
-            className="header__search__submit"
-          />
-        </form>
-
-        {/* Sort By Input/Form */}
-      </section>
-
-      <section id="tags-list" className="tags-list">
-        {selectedTags.length > 0 && (
-          <ul className="sidebar__tags__list">
-            {selectedTags.map(tag => (
-              <li key={tag} className="sidebar__tags__list__item">
-                <p className="sidebar__tags__list__item__tag">{tag}</p>
-
-                <button
-                  aria-label={`Remove the hashtag: ${tag}`}
-                  className="sidebar__tags__list__item__btn"
-                  onClick={() => _handleDeselectTag(tag)}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-
-      <aside className="sidebar">
-        <div className="sidebar__tags">
-          <p className="sidebar__tags__label">Selected tags:</p>
-
-          <button
-            className="sidebar__tags__copy-btn"
-            onClick={_copyToClipboard}
+      <main id="content" className="content">
+        <section className="toolbar">
+          <form
+            onSubmit={_handleSearch}
+            className="toolbar__search"
           >
-            Copy to Clipboard
-          </button>
+            <label
+              htmlFor="search"
+              className="toolbar__search__label"
+            >
+              #
+            </label>
+            <input
+              id="search"
+              type="text"
+              value={searchQuery}
+              className="toolbar__search__input"
+              onChange={e => updateSearchQuery(e.target.value)}
+            />
+  
+            <button
+              className="btn toolbar__search__submit"
+            >
+              Search
+            </button>
+          </form>
+  
+          {/* Sort By Input/Form */}
+          <form className="toolbar__sort">
+            <label
+              htmlFor="sort"
+              className="toolbar__sort__label"
+            >
+              Sort By:
+            </label>
 
-          <textarea
-            className="sidebar__tags__hidden-val"
-            aria-hidden="true"
-            ref={selectedTagsRef}
-            defaultValue={selectedTags.join(" ")}
-            tabIndex="-1"
-          />
+            <select
+              id="sort"
+              className="toolbar__sort__select"
+              onChange={(e) => {console.log(e.target.value)}}
+            >
+              <option value=""></option>
+              <option value="htl">Posts - High to Low</option>
+              <option value="lth">Posts - Low to High</option>
+            </select>
+          </form>
+        </section>
+  
+        <aside className="selected-tags">
+          <div className="sidebar__tags">
+            <p className="sidebar__tags__label">Selected tags:</p>
+  
+            <button
+              className="sidebar__tags__copy-btn"
+              onClick={_copyToClipboard}
+            >
+              Copy to Clipboard
+            </button>
+  
+            <textarea
+              className="sidebar__tags__hidden-val"
+              aria-hidden="true"
+              ref={selectedTagsRef}
+              defaultValue={selectedTags.join(" ")}
+              tabIndex="-1"
+            />
+  
+            {/* List of selected tags */}
+            <div id="selected-tags" className="selected-tags">
+              {selectedTags.length > 0 && (
+                <ul className="sidebar__tags__list">
+                  {selectedTags.map(tag => (
+                    <li key={tag} className="sidebar__tags__list__item">
+                      <p className="sidebar__tags__list__item__tag">{tag}</p>
+  
+                      <button
+                        aria-label={`Remove the hashtag: ${tag}`}
+                        className="sidebar__tags__list__item__btn"
+                        onClick={() => _handleDeselectTag(tag)}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        </aside>
+  
+        {searchResults.length > 0 && (
+          <SearchResults results={searchResults} _handleSelectTag={_handleSelectTag} />
+        )}
+      </main>
 
-          {/* List of selected tags */}
-        </div>
-      </aside>
-
-      {searchResults.length > 0 && (
-        <SearchResults results={searchResults} _handleSelectTag={_handleSelectTag} />
-      )}
-    </main>
+      <footer className="footer">
+        <p>
+          An <a href="http://blogofiron.com" target="_blank"><strong>Ironclad</strong></a> Website
+        </p>
+      </footer>
+    </div>
   )
 }
 

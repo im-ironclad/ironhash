@@ -1,24 +1,55 @@
 .header {
   display: flex;
-  align-items: center;
-  width: $cont-rg;
-  max-width: $max-width;
+  flex-direction: column;
   margin: 0 auto;
+  max-width: $max-width;
   padding: $spacing-4 0;
+  width: $cont-rg;
 
-  &__logo {
-    margin-right: $spacing-3;
+  @media only screen and (min-width: $screen-md-min) {
+    align-items: center;
+    flex-direction: row;
   }
 
-  &__heading {
-    width: 500px;
-    @include font(3.2, $bold: true)
+  &__logo-title {
+    display: flex;
+    align-items: center;
+
+    &__logo {
+      height: 75px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-right: $spacing-2;
+      width: 75px;
+
+      @media only screen and (min-width: $screen-sm-min) {
+        margin-right: $spacing-3;
+      }
+    }
+
+    &__title {
+      @include font("heading");
+      width: 365px;
+      max-width: 100%;
+
+      @media only screen and (min-width: $screen-sm-min) {
+        width: 500px;
+      }
+    }
   }
+
 
   &__tut-link {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    margin-right: auto;
+    margin-top: $spacing-3;
+
+    @media only screen and (min-width: $screen-md-min) {
+      margin-left: auto;
+      margin-right: unset;
+      margin-top: 0;
+    }
 
     &__copy {
       font-weight: $font-bold;

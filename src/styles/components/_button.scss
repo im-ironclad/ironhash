@@ -1,0 +1,9 @@
+.btn {
+  background-color: map-get($colors, "gray-400");
+  border-radius: 5px;
+  color: map-get($colors, "white");
+  font-weight: $font-bold;
+  height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+}

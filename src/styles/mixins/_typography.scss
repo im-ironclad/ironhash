@@ -13,7 +13,7 @@
   $family: "default",
   $style: null
 ) {
-  color: $color;
+  color: map-get($colors, $color);
   font-family: map-get($font-families, $family);
 
   @if ($bold == true) {
@@ -25,13 +25,24 @@
   }
 
   @if ($size=="heading") {
-    @include font-size-rem(3.2, 4.0);
+    font-weight: $font-bold;
+    @include font-size-rem(2.2, 2.8);
+
+    @media only screen and (min-width: $screen-sm-min) {
+      @include font-size-rem(3.2, 3.8);
+    }
+  }
+  @else if ($size=="heading-sm") {
+    @include font-size-rem(2.4, 3.0);
   }
   @else if ($size=="body") {
-    @include font-size-rem(1.8, 2.4);
+    @include font-size-rem(2.0, 2.6);
+  }
+  @else if ($size=="body-sm") {
+    @include font-size-rem(1.6, 2.2);
   }
   @else if ($size=="small") {
-    @include font-size-rem(1.2, 2.0);
+    @include font-size-rem(1.4, 2.0);
   }
   @else {
     @include font-size-rem($size, $size * 1.2)

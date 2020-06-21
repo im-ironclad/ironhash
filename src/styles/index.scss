@@ -19,7 +19,10 @@
 @import "generic/utilities";
 
 // Components, order alphabetically
+@import "components/button";
+@import "components/content";
 @import "components/header";
 @import "components/icon";
+@import "components/toolbar";
 
 // Include any vendor file(s)

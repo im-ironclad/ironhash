@@ -5,7 +5,7 @@ const SearchResults = ({ _handleSelectTag, results }) => {
   const tagsEndpoint = "https://www.instagram.com/explore/tags/"
 
   return (
-    <section id="results" className="results">
+    <section id="search-results" className="search-results">
       {results.map(result => (
         <article key={result.hashtag.id} className="results__item">
           <p
