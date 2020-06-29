@@ -7,9 +7,9 @@ const SearchResults = ({ _handleSelectTag, results }) => {
   return (
     <section id="search-results" className="search-results">
       {results.map(result => (
-        <article key={result.hashtag.id} className="results__item">
+        <article key={result.hashtag.id} className="search-results__item">
           <p
-            className="results__item__name"
+            className="search-results__item__name"
           >
             <a
               href={tagsEndpoint + result.hashtag.name}
@@ -21,13 +21,13 @@ const SearchResults = ({ _handleSelectTag, results }) => {
           </p>
 
           <p
-            className="results__item__subtitle"
+            className="search-results__item__subtitle"
           >
             {result.hashtag.search_result_subtitle}
           </p>
 
           <button
-            className="results__item__btn"
+            className="search-results__item__btn"
             onClick={() => _handleSelectTag(`#${result.hashtag.name}`)}
           >
             Select tag

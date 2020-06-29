@@ -73,6 +73,7 @@ const HomePage = () => {
   
         <SelectedTags
           _copyToClipboard={_copyToClipboard}
+          _handleDeselectTag={_handleDeselectTag}
           selectedTags={selectedTags}
           selectedTagsRef={selectedTagsRef}
         />

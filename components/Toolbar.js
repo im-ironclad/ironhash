@@ -1,6 +1,9 @@
 // Import Packages
 import React from 'react'
 
+// Import Components
+import IconSVG from './IconSVG'
+
 /**
  * @component Toolbar
  */
@@ -50,6 +53,8 @@ const Toolbar = ({ _handleSearch, searchQuery, updateSearchQuery }) => {
           <option value="htl">Posts - High to Low</option>
           <option value="lth">Posts - Low to High</option>
         </select>
+
+        <IconSVG iconName="triangle-down" />
       </form>
     </section>
   )

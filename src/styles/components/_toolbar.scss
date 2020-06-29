@@ -25,13 +25,26 @@
   &__sort {
     align-items: center;
     display: flex;
+    position: relative;
 
     &__label {
       margin-right: $spacing-3;
     }
 
     &__select {
+      cursor: pointer;
       flex-grow: 1;
+      padding-left: $spacing-3;
+    }
+
+    & .icon {
+      fill: map-get($colors, "gray-400");
+      height: 11px;
+      pointer-events: none;
+      position: absolute;
+      right: $spacing-3;
+      top: 8px;
+      width: 18px;
     }
   }
 }
