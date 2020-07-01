@@ -62,6 +62,8 @@
       
       & .icon {
         fill: map-get($colors, "red-400");
+        height: 100%;
+        width: 100%;
       }
     }
   }

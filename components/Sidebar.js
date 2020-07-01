@@ -5,24 +5,47 @@ import React from 'react'
 import IconSVG from './IconSVG'
 
 /**
- * @component SelectedTags
+ * @component Sidebar
  */
-const SelectedTags = ({
+const Sidebar = ({
   _copyToClipboard,
   _handleDeselectTag,
   selectedTags,
   selectedTagsRef
 }) => {
+  const copyMsg = React.createRef()
+  // Create a variable and two functions to help with the timing of the copy message
+  let timer
+  const setTimer = () => {
+    timer = setTimeout(() => {
+      copyMsg.current.classList.remove('visible')
+    }, 1500)
+  }
+  const showCopyMsg = () => {
+    clearTimeout(timer)
+    copyMsg.current.classList.add('visible')
+    setTimer()
+  }
+
   return (
     <aside className="sidebar">
       <p className="sidebar__label">Selected Hashtags ({selectedTags.length}):</p>
 
-      <button
-        className="sidebar__copy-btn"
-        onClick={_copyToClipboard}
-      >
-        <IconSVG iconName="copy" /> Copy to Clipboard
-      </button>
+      <div className="sidebar__copy">
+        <button
+          className="sidebar__copy__btn"
+          onClick={() => {
+            showCopyMsg()
+            _copyToClipboard()
+          }}
+        >
+          <IconSVG iconName="copy" /> Copy to Clipboard
+        </button>
+  
+        <p className="sidebar__copy__msg" ref={copyMsg}>
+          Copied!
+        </p>
+      </div>
 
       <textarea
         className="sidebar__hidden-val visually-hidden"
@@ -55,4 +78,4 @@ const SelectedTags = ({
   )
 }
 
-export default SelectedTags
+export default Sidebar

@@ -1,11 +1,23 @@
 .toolbar {
   margin-bottom: $spacing-4;
 
+  @media only screen and (min-width: $screen-md-min) {
+    align-items: center;
+    display: flex;
+    float: left;
+    width: 70%;
+  }
+
   &__search {
     align-items: center;
     display: flex;
     margin-bottom: $spacing-3;
     position: relative;
+
+    @media only screen and (min-width: $screen-md-min) {
+      width: 55%;
+      margin-bottom: 0;
+    }
 
     &__label {
       position: absolute;
@@ -27,6 +39,11 @@
     display: flex;
     position: relative;
 
+    @media only screen and (min-width: $screen-md-min) {
+      width: 40%;
+      margin-left: 5%;
+    }
+
     &__label {
       margin-right: $spacing-3;
     }
@@ -45,6 +62,22 @@
       right: $spacing-3;
       top: 8px;
       width: 18px;
+
+      & svg {
+        position: relative;
+        z-index: 2;
+      }
+
+      &:after {
+        content: '';
+        background-image: linear-gradient(to right, transparentize(map-get($colors, "gray-100"), 0.2) 5%, map-get($colors, "gray-100") 15%);
+        height: 38px;
+        position: absolute;
+        right: -15px;
+        top: -7px;
+        width: 45px;
+        z-index: 1;
+      }
     }
   }
 }

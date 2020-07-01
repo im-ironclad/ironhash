@@ -1,11 +1,11 @@
 // Import Packages
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 // Import Components
 import Header from '../components/Header'
 import SearchResults from '../components/SearchResults'
-import SelectedTags from '../components/SelectedTags'
+import Sidebar from '../components/Sidebar'
 import Toolbar from '../components/Toolbar'
 
 /**
@@ -33,9 +33,30 @@ const HomePage = () => {
   }
 
   /**
+   * Method for handling the sorting of our searchResults
+   */
+  const _handleSort = sortValue => {
+    // Don't do anything if we are choosing the first, empty, option
+    if (sortValue === "") {
+      return
+    }
+
+    const sortOptions = {
+      htl: (a, b) => b - a,
+      lth: (a, b) => a - b
+    }
+
+    const sortedResults = [...searchResults].sort(
+      (firstEl, secondEl) => sortOptions[sortValue](firstEl.hashtag.media_count, secondEl.hashtag.media_count)
+    )
+
+    updateSearchResults(sortedResults)
+  }
+
+  /**
    * Method for handling the selection of a new tag
    */
-  const _handleSelectTag = (tagName) => {
+  const _handleSelectTag = tagName => {
     if (selectedTags.includes(tagName)) {
       return
     }
@@ -58,6 +79,7 @@ const HomePage = () => {
   const _copyToClipboard = () => {
     selectedTagsRef.current.select()
     document.execCommand("copy")
+    selectedTagsRef.current.blur()
   }
 
   return (
@@ -69,9 +91,10 @@ const HomePage = () => {
           _handleSearch={_handleSearch}
           searchQuery={searchQuery}
           updateSearchQuery={updateSearchQuery}
+          _handleSort={_handleSort}
         />
   
-        <SelectedTags
+        <Sidebar
           _copyToClipboard={_copyToClipboard}
           _handleDeselectTag={_handleDeselectTag}
           selectedTags={selectedTags}
@@ -79,13 +102,19 @@ const HomePage = () => {
         />
   
         {searchResults.length > 0 && (
-          <SearchResults results={searchResults} _handleSelectTag={_handleSelectTag} />
+          <SearchResults
+            _handleSelectTag={_handleSelectTag}
+            results={searchResults}
+            selectedTags={selectedTags}
+          />
         )}
+
+        <div className="clearfix"></div>
       </main>
 
       <footer className="footer">
         <p>
-          An <a href="http://blogofiron.com" target="_blank"><strong>Ironclad</strong></a> Website
+          An <a href="http://blogofiron.com" target="_blank" rel="noreferrer"><strong>Ironclad</strong></a> Website
         </p>
       </footer>
     </div>

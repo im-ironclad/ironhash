@@ -7,7 +7,7 @@ import IconSVG from './IconSVG'
 /**
  * @component Toolbar
  */
-const Toolbar = ({ _handleSearch, searchQuery, updateSearchQuery }) => {
+const Toolbar = ({ _handleSearch, _handleSort, searchQuery, updateSearchQuery }) => {
   return (
     <section className="toolbar">
       <form
@@ -47,7 +47,7 @@ const Toolbar = ({ _handleSearch, searchQuery, updateSearchQuery }) => {
         <select
           id="sort"
           className="toolbar__sort__select"
-          onChange={(e) => {console.log(e.target.value)}}
+          onChange={e => {_handleSort(e.target.value)}}
         >
           <option value=""></option>
           <option value="htl">Posts - High to Low</option>
