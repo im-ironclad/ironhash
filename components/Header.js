@@ -19,7 +19,7 @@ const Header = () => {
         />
   
         <h1 className="header__logo-title__title">
-          Quickly and easily research related <a href="https://instagram.com" target="_blank">Instagram</a> hashtags.
+          Quickly and easily research related <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a> hashtags.
         </h1>
       </div>
 
@@ -31,6 +31,7 @@ const Header = () => {
         <a
           href="https://youtube.com"
           target="_blank"
+          rel="noreferrer"
           className="header__tut-link__icon"
           title="Video Tutorial"
         >
