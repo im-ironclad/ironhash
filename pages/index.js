@@ -1,5 +1,6 @@
 // Import Packages
 import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 import axios from 'axios'
 
 // Import Components
@@ -84,6 +85,10 @@ const HomePage = () => {
 
   return (
     <div id="home">
+      <Head>
+        <title key="title">ironhash | Research Instagram Hashtags</title>
+      </Head>
+      
       <Header />
 
       <main id="content" className="content">
