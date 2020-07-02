@@ -29,7 +29,7 @@ const Header = () => {
         </p>
 
         <a
-          href="https://youtube.com"
+          href="https://youtu.be/Ef75gyezQzk"
           target="_blank"
           rel="noreferrer"
           className="header__tut-link__icon"
