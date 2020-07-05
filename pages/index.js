@@ -119,7 +119,7 @@ const HomePage = () => {
 
       <footer className="footer">
         <p>
-          An <a href="https://www.youtube.com/channel/UCfyl78_YOHJ-ePTkS2SouOA" target="_blank" rel="noreferrer"><strong>Ironclad</strong></a> Website
+          An <a href="https://twitter.com/im_ironclad" target="_blank" rel="noreferrer"><strong>Ironclad</strong></a> Website
         </p>
       </footer>
     </div>
