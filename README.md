@@ -2,4 +2,4 @@
 
 A tool for researching related hashtags on Instagram.
 
-Made with NextJS
+[ironhash](https://ironhash.com)
