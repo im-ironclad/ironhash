@@ -27,6 +27,23 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-57087510-12"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-57087510-12');
+              `
+            }}
+          />
         </body>
       </Html>
     )
