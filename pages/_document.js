@@ -16,13 +16,6 @@ class MyDocument extends Document {
             key="description"
             content="Quickly and easily research related Instagram hashtags for your Instagram influencing."
           />
-
-          <script
-            async
-            defer
-            data-domain="ironhash.com"
-            src="https://plausible.io/js/plausible.js"
-          ></script>
         </Head>
         <body>
           <Main />
