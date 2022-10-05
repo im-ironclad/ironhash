@@ -105,8 +105,8 @@ const HomePage = () => {
           selectedTags={selectedTags}
           selectedTagsRef={selectedTagsRef}
         />
-  
-        {searchResults.length > 0 && (
+
+        {searchResults && searchResults.length > 0 && (
           <SearchResults
             _handleSelectTag={_handleSelectTag}
             results={searchResults}
