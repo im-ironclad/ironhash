@@ -1,4 +1,8 @@
 /**
+ * This is unused for now, stripping out SVG Sprite things in favor of inline
+ */
+
+/**
  * Require packages
  */
 const { src, dest, series } = require('gulp'),
